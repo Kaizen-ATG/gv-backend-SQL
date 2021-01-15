@@ -9,3 +9,39 @@ CREATE TABLE user(
     FOREIGN KEY(role_id) references role(role_id));
 
 create table role(role_id int primary key,role_type  varchar(8));
+
+
+create table redeemoffers(
+deal_type varchar(11),
+points_required int,
+deal_code varchar(10));
+
+
+create table userpoints(
+green_points int,
+carbon_points int,
+user_id int(6)
+);
+
+
+queries used for inserting data
+
+
+INSERT INTO role(role_id,role_type)
+VALUES (500, "Manager");
+INSERT INTO role(role_id,role_type)
+VALUES (501, "user");
+
+INSERT INTO user(username,email,password,role_id )
+values("Stepheny","Stepheny.S@gmail.com","abcd1234",500);
+
+
+INSERT INTO user(username,email,password,role_id )
+values("cliff","cliff.S@gmail.com","abcd5678",500);
+
+INSERT INTO user(username,email,password,role_id )
+values("cliff","cliff.S@gmail.com","abcd5678",500);
+
+INSERT INTO user(username,email,password,role_id )
+values("Dan","Dan.S@gmail.com","dan1234",500);
+
