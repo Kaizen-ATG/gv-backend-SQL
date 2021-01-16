@@ -1,15 +1,13 @@
- CREATE TABLE role(role_id int primary key,role_type  varchar(8));
-
-CREATE TABLE user(
-    user_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
-    email VARCHAR(50) Unique KEY,
-    password varchar(32),
-    role_id int, CONSTRAINT fk_role_id
-    FOREIGN KEY(role_id) references role(role_id));
-
 create table role(role_id int primary key,role_type  varchar(8));
 
+CREATE TABLE user(
+user_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(30) NOT NULL,
+email VARCHAR(50) Unique KEY,
+password varchar(32),
+role_id int, CONSTRAINT fk_role_id
+FOREIGN KEY(role_id) references role(role_id)
+);
 
 create table redeemoffers(
 deal_type varchar(11),
@@ -23,18 +21,10 @@ carbon_points int,
 user_id int(6)
 );
 
-ALTER TABLE userpoints ADD weekGP int;
 
-ALTER TABLE redeemoffers add COLUMN description varchar(30);
 
-create table leaderboard(
-  user_name varchar(30),
-  green_points int,
-  carbon_points int
-);
-
-queries used for inserting data
-
+inserting dummy data ?
+identifying ends points
 
 INSERT INTO role(role_id,role_type)
 VALUES (500, "Manager");
@@ -43,6 +33,9 @@ VALUES (501, "user");
 
 INSERT INTO user(username,email,password,role_id )
 values("Stepheny","Stepheny.S@gmail.com","abcd1234",500);
+
+
+
 
 
 INSERT INTO user(username,email,password,role_id )
@@ -54,3 +47,21 @@ values("cliff","cliff.S@gmail.com","abcd5678",500);
 INSERT INTO user(username,email,password,role_id )
 values("Dan","Dan.S@gmail.com","dan1234",500);
 
+
+INSERT INTO user(username,email,password)
+values("Bobby","bobby.S@gmail.com","bobby1234",500);
+
+ALTER TABLE leaderboard change user_name username varchar(30);
+ALTER TABLE userpoints ADD weekGP int;
+
+ALTER TABLE redeemoffers ADD primary key(deal_code);    
+
+UPDATE user SET user_name="Stephany" where user_id=5;
+
+ALTER TABLE redeemoffers add COLUMN description varchar(30);
+
+create table leaderboard(
+  user_name varchar(30),
+  green_points int,
+  carbon_points int
+);
