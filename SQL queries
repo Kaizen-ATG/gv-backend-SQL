@@ -23,6 +23,15 @@ carbon_points int,
 user_id int(6)
 );
 
+ALTER TABLE userpoints ADD weekGP int;
+
+ALTER TABLE redeemoffers add COLUMN description varchar(30);
+
+create table leaderboard(
+  user_name varchar(30),
+  green_points int,
+  carbon_points int
+);
 
 queries used for inserting data
 
